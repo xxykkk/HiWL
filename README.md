@@ -1,5 +1,5 @@
 
-![image](https://github.com/user-attachments/assets/8417d23b-7514-410d-bc17-8a71bcffd341)
+![image](assets/figure-framework.pdf)
 
 
 
