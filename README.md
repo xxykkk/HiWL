@@ -17,11 +17,14 @@ HiWL is a two-stage deep image watermarking framework that achieves imperceptibl
   - kornia==0.8.2
 
 ## Dataset
-[COCO](https://cocodataset.org/)
-[ImageNet](https://www.image-net.org/)
-[GenImage](https://github.com/GenImage-Dataset/GenImage)
-[HumanArt](https://github.com/IDEA-Research/HumanArt)
-[DRCT](https://proceedings.mlr.press/v235/chen24ay.html)
+**Train / Valid / Test**
+ - [COCO](https://cocodataset.org/)
+
+**Only Test**
+ - [ImageNet](https://www.image-net.org/)
+ - [GenImage](https://github.com/GenImage-Dataset/GenImage)
+ - [HumanArt](https://github.com/IDEA-Research/HumanArt)
+ - [DRCT](https://proceedings.mlr.press/v235/chen24ay.html)
 
 # Usage
 
