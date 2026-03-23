@@ -36,7 +36,9 @@ python train_stage2.py --load_path 'STAGE1_CHECKPOINT_PATH'
 
 ## Inference
 
-`python evaluate.py --path 'MODEL_FOLDER_PATH' --epoch 'EPOCH_NUM' --type 'diff'`
+```
+python evaluate.py --path 'MODEL_FOLDER_PATH' --epoch 'EPOCH_NUM' --type 'diff'
+```
 
 
 ## Citation
