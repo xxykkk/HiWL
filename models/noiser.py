@@ -16,7 +16,6 @@ from .noise_layers.padding import RandomPadding
 from .noise_layers.occlusion import RandomOcclusion 
 from .noise_layers.padding import RandomPadding
 
-from .noise_layers.salt_pepper import RandomSP
 from .noise_layers.middle_filter import RandomMF
 from .noise_layers.affine import RandomAffine,RandomAffine_Diff
 

@@ -6,10 +6,10 @@ from torchvision import transforms
 
 def write_csv(filename, epoch, perrow, save=True):
     """
-    write result to csv file
+    Write result to csv file
     """
     row_to_write = ['epoch','loss_d_cov_bce','loss_d_enc_bce','loss_g_adv_bce',
-							'loss_g_enc_mse','loss_g_dec_mse','loss_g','psnr','ssim','ipips','acc_rate']
+                            'loss_g_enc_mse','loss_g_dec_mse','loss_g','psnr','ssim','ipips','acc_rate']
     if save==False:
         if epoch==0:
             print(row_to_write)
@@ -25,7 +25,7 @@ def write_csv(filename, epoch, perrow, save=True):
 
 def write_csv_test(filename, noise, perrow, save=True):
     """
-    write result to csv file
+    Write result to csv file
     """
     row_to_write = ['loss_d_cov_bce','loss_d_enc_bce','loss_g_adv_bce',
                     'loss_g_enc_mse','loss_g_dec_mse','loss_g','psnr','ssim','ipips','APD_H','acc_rate','acc_batch',
@@ -47,7 +47,7 @@ def write_csv_test(filename, noise, perrow, save=True):
 
 def setup_seed(seed):
     """
-    set random seed
+    Set random seed
     """
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
@@ -57,7 +57,7 @@ def setup_seed(seed):
 def make_grid_save_image(images_all, path, save_img_num=6, save=True):
     images, encoded_images, noised_images, diff_images, diff_images_linear=images_all
     plotimg=vutils.make_grid(torch.cat([images,encoded_images,
-									  noised_images,diff_images,diff_images_linear], dim=0),nrow=save_img_num,padding=1)
+                                      noised_images,diff_images,diff_images_linear], dim=0),nrow=save_img_num,padding=1)
     if(save): vutils.save_image(plotimg, path)
     else: return plotimg
 
@@ -78,12 +78,13 @@ def save_preprocess(images, encoded_images, noised_images, save_img_num=6, norm=
     R = diff_images_linear[:, 0, :, :]
     G = diff_images_linear[:, 1, :, :]
     B = diff_images_linear[:, 2, :, :]
+    # Apply grayscale conversion weights
     diff_images_linear[:, 0, :, :] = 0.299 * R + 0.587 * G + 0.114 * B
     diff_images_linear[:, 1, :, :] = diff_images_linear[:, 0, :, :]
     diff_images_linear[:, 2, :, :] = diff_images_linear[:, 0, :, :]
     diff_images_linear = torch.abs(diff_images_linear * 2 - 1)
 
-    # maximize diff
+    # Maximize difference for visualization
     for id in range(diff_images_linear.shape[0]):
         diff_images_linear[id] = (diff_images_linear[id] - diff_images_linear[id].min()) / (
                 diff_images_linear[id].max() - diff_images_linear[id].min())
@@ -96,10 +97,6 @@ def is_intersect(x1, y1, x2, y2, w, h):
         return True
     else:
         return False
-
-
-
-
 
 
 def padding_save(img, mask, size=512, padding_mode='constant', fill=0, pad_if_needed=True):
